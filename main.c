@@ -4,8 +4,7 @@
 #include <Elementary.h>
 #include <Efl_Ui.h>
 
-static void
-_gui_quit_cb(void *data EINA_UNUSED, const Efl_Event *event EINA_UNUSED) {
+static void _gui_quit_cb(void *data EINA_UNUSED, const Efl_Event *event EINA_UNUSED) {
    efl_exit(0);
 }
 
