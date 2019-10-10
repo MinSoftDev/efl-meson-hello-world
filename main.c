@@ -34,8 +34,7 @@ EAPI_MAIN void efl_main(void *data EINA_UNUSED, const Efl_Event *ev EINA_UNUSED)
            efl_text_set(efl_added, "Quit"),
            efl_gfx_hint_weight_set(efl_added, 1.0, 0.1),
            efl_pack(box, efl_added),
-           efl_event_callback_add(efl_added, EFL_UI_EVENT_CLICKED,
-                                  _gui_quit_cb, efl_added));
+           efl_event_callback_add(efl_added, EFL_UI_EVENT_CLICKED, _gui_quit_cb, efl_added));
 }
 
 EFL_MAIN()
