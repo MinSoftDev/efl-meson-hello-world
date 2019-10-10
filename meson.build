@@ -1,8 +1,7 @@
-project('min-e-calc', 'c')
+project('hello-world', 'c')
 
 compiler = meson.get_compiler('c')
 incdirs = ['/usr/include/efl-1',
-    '/usr/include/efl-1/interfaces',
     '/usr/include/ecore-1',
     '/usr/include/eina-1',
     '/usr/include/eina-1/eina',
@@ -24,18 +23,13 @@ incdirs = ['/usr/include/efl-1',
     '/usr/include/eio-1',
     '/usr/include/elocation-1']
 
-libdirs = ['/lib64']
-libs = ['ecore', 'eina', 'efl', 'elementary', 'eo', 'ecore_con', 'ecore_wl2', 'efl_wl']
-sources = ['main.c']
-
 deps = []
-foreach libname : libs
-    deps += [compiler.find_library(libname, dirs : libdirs)]
+foreach libname : ['ecore', 'elementary', 'eo', 'ecore_con']
+    deps += [compiler.find_library(libname, dirs : '/lib64')]
 endforeach
 
-executable('min-e-calc', sources, 
+executable('hello-world', 'main.c', 
   include_directories : include_directories(incdirs),
   dependencies : deps,
   gui_app : true
 )
-

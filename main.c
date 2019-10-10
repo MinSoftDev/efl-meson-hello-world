@@ -5,14 +5,11 @@
 #include <Efl_Ui.h>
 
 static void
-_gui_quit_cb(void *data EINA_UNUSED, const Efl_Event *event EINA_UNUSED)
-{
+_gui_quit_cb(void *data EINA_UNUSED, const Efl_Event *event EINA_UNUSED) {
    efl_exit(0);
 }
- 
-static void
-_gui_setup()
-{
+
+EAPI_MAIN void efl_main(void *data EINA_UNUSED, const Efl_Event *ev EINA_UNUSED) {
    Eo *win, *box;
  
    win = efl_add(EFL_UI_WIN_CLASS, efl_main_loop_get(),
@@ -40,12 +37,5 @@ _gui_setup()
            efl_event_callback_add(efl_added, EFL_UI_EVENT_CLICKED,
                                   _gui_quit_cb, efl_added));
 }
- 
-EAPI_MAIN void
-efl_main(void *data EINA_UNUSED, const Efl_Event *ev EINA_UNUSED)
-{
-   _gui_setup();
-}
+
 EFL_MAIN()
-
-
